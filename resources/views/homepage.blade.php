@@ -4,6 +4,25 @@
    Homepage
 @endsection
 
+@section('script')
+   {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  --}}
+   <script src="{{asset('public/js/jquery-2.1.4.min.js')}}"></script>
+   <script>
+      $(document).ready(function(){
+         $(window).scroll(function(){
+            if($(window).scrollTop() > 10)
+            {
+               $("#gambar1").slideUp();
+            }
+            else
+            {
+               $("#gambar1").slideDown();
+            }
+         });
+      });
+   </script>
+@endsection
+
 @section('style')
    <link rel="stylesheet" type="text/css" href="{{asset('public/css/homeStyle.css')}}"/>
    <link rel="stylesheet" type="text/css" href="{{asset('public/css/formstyle.css')}}"/>
@@ -17,6 +36,7 @@
             <input type="password" placeholder="Kata sandi" required="true"/><br>
             <button>Masuk</button>
          </form>
+         <span>Belum memiliki akun? <b><a href="">daftar sekarang!</a></b></span>
       </div>
    </div>
    <div id="gambar2" class="gambar">

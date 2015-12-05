@@ -12,6 +12,7 @@ body{
 #gambar1{
    position: fixed;
    background-image: url("../images/1.jpg");
+   z-index: 2;
 }
    #gambar1Daftar{
       padding: 50px;
@@ -23,14 +24,13 @@ body{
 
 #gambar2{
    background: white;
-   position: absolute;
-   top: 650px;
+   position: fixed;
 }
 
 #gambar3{
    background: purple;
    position: absolute;
-   top: 1300px;
+   top: 750px;
 }
 
 .content{

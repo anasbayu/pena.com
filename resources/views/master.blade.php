@@ -4,6 +4,7 @@
       <title>
          @yield('title')
       </title>
+      @yield('script')
       @yield('style')
    </head>
    <body>
