@@ -7,20 +7,7 @@
 @section('script')
    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  --}}
    <script src="{{asset('public/js/jquery-2.1.4.min.js')}}"></script>
-   <script>
-      $(document).ready(function(){
-         $(window).scroll(function(){
-            if($(window).scrollTop() > 10)
-            {
-               $("#gambar1").slideUp();
-            }
-            else
-            {
-               $("#gambar1").slideDown();
-            }
-         });
-      });
-   </script>
+   <script src="{{asset('public/js/scroll.js')}}"></script>
 @endsection
 
 @section('style')
