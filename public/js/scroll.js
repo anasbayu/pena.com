@@ -35,21 +35,22 @@ $(document).ready(function(){
       }
 
       // gAMBAR 2.
-      if($(window).scrollTop() > 400)
+      if($(window).scrollTop() > 300)
       {
-         $("#gambar2Kiri").css('transform', 'translateX(-100%)');
-         $("#gambar2Kanan").css('transform', 'translateX(+100%)');
+         // $("#gambar2Kiri").css('transform', 'translateX(-100%)');
+         // $("#gambar2Kanan").css('transform', 'translateX(+100%)');
          bantuanScroll = 1;
 
-         // $("#gambar2Kiri").animate({'transform': 'translateX(-100%)'});
-         // $("#gambar2Kanan").animate({"margin-right" : "+=200"});
-         //  $("#gambar2Kiri").animate({"margin-left" : "-=1000"});
+         $("#gambar2Kiri").stop().animate({'left': '-100%'}, 1500);
+         $("#gambar2Kanan").stop().animate({"right" : "-100%"}, 1500);
+         //$("#gambar2Kiri").animate({"margin-left" : "-=1000"});
          //  $("#gambar2Kanan").animate({"margin-right" : "-=1000"});
       }
-      else if($(window).scrollTop() < 400 && bantuanScroll == 1)
+      else if($(window).scrollTop() < 300 && bantuanScroll == 1)
       {
-         $("#gambar2Kiri").css('transform', 'translateX(0%)');
-         $("#gambar2Kanan").css('transform', 'translateX(0%)');
+         $("#gambar2Kiri").stop().animate({'left': '0px'}, 1000);
+         $("#gambar2Kanan").stop().animate({'right': '0px'}, 1000);
+         bantuanScroll = 0;
       }
    });
 });

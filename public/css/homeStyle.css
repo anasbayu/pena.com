@@ -23,15 +23,18 @@ body{
    }
 
 #gambar2{
-   background: white;
+   background: url('../images/2.jpg');
    position: fixed;
 }
    #gambar2Kanan{
       background: blue;
-      float: right;
+      position: absolute;
+      right: 0px;
    }
    #gambar2Kiri{
       background: pink;
+      position: absolute;
+      left: 0px;
    }
       #gambar2KiriGambar{
          width: 300px;
@@ -47,7 +50,7 @@ body{
 #gambar3{
    background: purple;
    position: absolute;
-   top: 750px;
+   top: 1500px;
 }
 
 .content{
