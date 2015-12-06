@@ -16,8 +16,8 @@
 @endsection
 
 @section('body')
-   <div id="gambar1" class="gambar">
-      <div id="gambar1Daftar">
+   <div id="section1Home" class="section">
+      <div id="formDaftar">
          <form method="post" action="">
             <input type="text" placeholder="Nama" required="true"/><br>
             <input type="password" placeholder="Kata sandi" required="true"/><br>
@@ -26,15 +26,20 @@
          <span>Belum memiliki akun? <b><a href="">daftar sekarang!</a></b></span>
       </div>
    </div>
-   <div id="gambar2" class="gambar">
-      <div id="gambar2Kiri" class="content">
+   <div id="gambarOrangArea" class="section">
+      <img src="{{asset('public/images/orang.png')}}" id="orang">
+      <img src="{{asset('public/images/meja.png')}}" id="meja">
+   </div>
+   <div id="gambar2" class="section">
+      <div id="section2Kiri" class="content">
          <div id="gambar2KiriGambar">
          </div>
+         <img src="{{asset('public/images/orangBerubah.png')}}" id="orangBerubah">
       </div>
-      <div id="gambar2Kanan" class="content">
+      <div id="section2Kanan" class="content">
       </div>
    </div>
-   <div id="gambar3" class="gambar">
+   <div id="section3" class="section">
       gambar3
    </div>
    <div id="footer">

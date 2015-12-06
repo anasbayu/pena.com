@@ -1,20 +1,20 @@
 body{
    margin: 0px;
    font-family: 'Montserrat', sans-serif;
+   font-family: 'Muli', sans-serif;
 }
 
-
-.gambar{
+.section{
    width: 100%;
    height: 650px;
 }
 
-#gambar1{
+#section1Home{
    position: fixed;
    background-image: url("../images/1.jpg");
-   z-index: 2;
+   z-index: 5;
 }
-   #gambar1Daftar{
+   #formDaftar{
       padding: 50px;
       background: white;
       position: absolute;
@@ -22,19 +22,49 @@ body{
       top: 30%;
    }
 
+#gambarOrangArea{
+   background: red;
+   position: absolute;
+   z-index: 4;
+   padding-top: 50px;
+}
+   #orang{
+      height: 300px;
+      position: fixed;
+      top: 200px;
+      left: -200px;
+      z-index: 1;
+   }
+   #meja{
+      height: 250px;
+      position: absolute;
+      top: 220px;
+      left: 200px;
+      z-index: 2;
+   }
+   #orangBerubah{
+      height: 300px;
+      position: absolute;
+      top: 200px;
+      left: 200px;
+      z-index: 3;
+   }
+
 #gambar2{
    background: url('../images/2.jpg');
    position: fixed;
 }
-   #gambar2Kanan{
+   #section2Kanan{
       background: blue;
       position: absolute;
       right: 0px;
+      z-index: 2;
    }
-   #gambar2Kiri{
+   #section2Kiri{
       background: pink;
       position: absolute;
       left: 0px;
+      z-index: 2;
    }
       #gambar2KiriGambar{
          width: 300px;
@@ -47,10 +77,11 @@ body{
          opacity: 0;
       }
 
-#gambar3{
+#section3{
    background: purple;
    position: absolute;
    top: 1500px;
+   z-index: 3;
 }
 
 .content{

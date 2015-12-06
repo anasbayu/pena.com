@@ -1,0 +1,125 @@
+body{
+   margin: 0px;
+   font-family: 'Muli', sans-serif;
+   background: radial-gradient(#aed0cf, #c9d7d4, #dfe8e7, #f4f4f4, #f4f4f4, #ffffff);
+}
+
+#header{
+   width: 80%;
+   min-height: 50px;
+   background: red;
+   /*margin: auto;*/
+}
+   #menu{
+      min-width: 50px;
+      min-height: 50px;
+      position: absolute;
+      right: 160px;
+      top: 100px;
+      font-size: 30px;
+   }
+   #logo{
+      height: 200px;
+      width: 350px;
+      background: url('../images/logoPenaHitam.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 100px;
+      margin-top: 25px;
+   }
+   input{
+      margin: 10px;
+      margin-left: 0px;
+      padding: 10px;
+      width: 100px;
+      display: inline;
+   }
+#menu ul a li{
+   list-style: none;
+   display: inline;
+   text-align: center;
+   color: black;
+}
+   #menu ul a li:hover{
+      text-decoration: underline;
+   }
+   ul a{
+      text-decoration: none;
+      margin: 20px;
+   }
+
+#sideContent{
+   width: 75%;
+   min-height: 65px;
+   background: linear-gradient(#171f16, #3e473e, #546c58);
+   margin: auto;
+   margin-bottom: -15px;
+   color: white;
+   padding-top: 10px;
+
+}
+   #global{
+      height: 75px;
+      width: 50px;
+      background: url('../images/Logoglobal.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 10px;
+   }
+#feed{
+   width: 75%;
+   min-height: 300px;
+   background: #f0f8f9;
+   margin: auto;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+.feedClass{
+   margin: 5%;
+   width: 90%;
+   min-height: 100px;
+   /*background: green;*/
+}
+   hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0));
+   }
+
+
+@media (max-width: 930px){
+   #logo{
+      margin: auto;
+      margin-top: 10px;
+      margin-bottom: 40px;
+      height: 160px;
+      width: 320px;
+   }
+   #menu{
+      right: 30%;
+      top: 130px;
+   }
+}
+
+@media (max-width: 800px){
+   #menu{
+      right: 28%;
+      font-size: 25px;
+   }
+}
+
+@media (max-width: 700px){
+   #menu{
+      right: 25%;
+      font-size: 23px;
+   }
+}
+
+@media (max-width: 600px){
+   #menu{
+      right: 23%;
+   }
+}
