@@ -1,0 +1,33 @@
+#header{
+   width: 100%;
+   min-height: 50px;
+   background: black;
+   position: fixed;
+   top: 0px;
+   z-index: 3;
+}
+   #header img{
+      width: 100px;
+      margin-left: 50px;
+      margin-top: 5px;
+   }
+
+#menu{
+   width: 400px;
+   font-size: 20px;
+   background: none;
+   float: right;
+}
+   #menu ul a li{
+      list-style: none;
+      display: inline;
+      text-align: center;
+      color: white;
+   }
+   #menu ul a li:hover{
+      text-decoration: underline;
+   }
+   ul a{
+      text-decoration: none;
+      margin: 20px;
+   }
