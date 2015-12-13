@@ -1,6 +1,7 @@
 body{
    margin: 0px;
    font-family: 'Muli', sans-serif;
+   overflow-y: scroll;
 }
 
 #header{
@@ -11,11 +12,24 @@ body{
    top: 0px;
    z-index: 3;
 }
-   #header img{
+   #header img#logoHeader{
       width: 100px;
       margin-left: 50px;
-      margin-top: 5px;
+      margin-top: 10px;
    }
+   #profPicHeader{
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 100%;
+      overflow: hidden;
+      display: inline-block;
+      position: absolute;
+      top: 10px;
+   }
+      #profPicHeader img{
+         width: 100%;
+      }
 
 #menu{
    width: 400px;
@@ -36,3 +50,18 @@ body{
       text-decoration: none;
       margin: 20px;
    }
+
+@media (max-width: 600px){
+   ul a{
+      margin: 15px;
+   }
+   #menu{
+      width: 350px;
+   }
+}
+
+@media (max-width: 499px){
+   #header{
+      display: none;
+   }
+}

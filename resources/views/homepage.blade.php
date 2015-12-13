@@ -1,4 +1,4 @@
-@extends('master')
+@extends('templates/master')
 
 @section('title')
    Homepage
@@ -12,18 +12,19 @@
 
 @section('style')
    <link rel="stylesheet" type="text/css" href="{{asset('public/css/homeStyle.css')}}"/>
-   <link rel="stylesheet" type="text/css" href="{{asset('public/css/formstyle.css')}}"/>
+   <link rel="stylesheet" type="text/css" href="{{asset('public/css/formStyle.css')}}"/>
 @endsection
 
 @section('body')
    <div id="section1Home" class="section">
       <div id="formDaftar">
-         <form method="post" action="">
-            <input type="text" placeholder="Nama" required="true"/><br>
-            <input type="password" placeholder="Kata sandi" required="true"/><br>
+         <form method="post" action="login">
+            <input type="text" name="username" placeholder="Nama" required="true"/><br>
+            <input type="password" name="pass" placeholder="Kata sandi" required="true"/><br>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <button>Masuk</button>
          </form>
-         <span>Belum memiliki akun? <b><a href="">daftar sekarang!</a></b></span>
+         <span>Belum memiliki akun? <b><a href="buatUser">daftar sekarang!</a></b></span>
       </div>
    </div>
    <div id="gambarOrangArea" class="section">

@@ -57,7 +57,6 @@ $(document).ready(function(){
          $("#orang").stop().animate({'left': '300px'}, 1000);
          $("#orangBerubah").stop().animate({'left': '-400px'}, 1000);
       }
-
       // gAMBAR 2.
       // if($(window).scrollTop() > 700)
       // {

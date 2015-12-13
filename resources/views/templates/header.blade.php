@@ -1,10 +1,14 @@
 <div id="header">
-   <a href="dashboard"><img src="public/images/logoPenaPutih.png"/></a>
+   <a href="feed"><img src="public/images/logoPenaPutih.png" id="logoHeader"/></a>
    <div id="menu">
       <ul>
-         <a href="tulis cerita baru"><li><b>Tulis</b></li></a>
-         <a href=""><li><b>Profil</b></li></a>
-         <a href=""><li><b>Keluar</b></li></a>
+         <a href="tulisBaru"><li><b>Tulis</b></li></a>
+         {{-- <a href=""><li><b>Notifikasi</b></li></a> --}}
+         <a href="profil">
+            <div id="profPicHeader">
+               <img src="public/images/orang.png"/>
+            </div>
+         </a>
       </ul>
    </div>
 </div>

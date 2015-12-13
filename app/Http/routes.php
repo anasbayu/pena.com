@@ -1,11 +1,26 @@
 <?php
+// // Authentication routes...
+// Route::get('auth/login', 'Auth\AuthController@getLogin');
+// Route::post('auth/login', 'Auth\AuthController@postLogin');
+// Route::get('auth/logout', 'Auth\AuthController@getLogout');
+//
+// // Registration routes...
+// Route::get('auth/register', 'Auth\AuthController@getRegister');
+// Route::post('auth/register', 'Auth\AuthController@postRegister');
+
 
 Route::get('/', function () {
     return view('homepage');
 });
 
-Route::get('/dashboard', function(){
-   return view('dashboard');
+Route::get('/feed', 'ceritaController@feeds');
+
+Route::get('/profil', function(){
+   return view('profil');
 });
 
-Route::get('/tulis cerita baru', 'TulisController@buatBaru');
+Route::post('login', 'userController@login');
+
+Route::resource('/buatUser', 'userController');
+
+Route::resource('/tulisBaru', 'ceritaController');

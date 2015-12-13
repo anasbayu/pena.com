@@ -6,9 +6,6 @@
 }
 
 #feed{
-   width: 75%;
-   min-height: 300px;
-   margin: auto;
    padding-top: 10px;
    padding-bottom: 10px;
    /*background: pink;*/
@@ -25,8 +22,8 @@
 #feedProfPic{
    width: 10%;
    height: 80px;
-   border: 1px solid black;
-   border-radius: 1000px;
+   border: none;
+   border-radius: 50%;
    overflow: hidden;
    display: inline-block;
 }
@@ -34,11 +31,14 @@
       width: 100%;
    }
 #feedInfo{
-   /*background: red;*/
-   width: 89%;
+   /*background: aqua;*/
+   width: 86%;
    min-height: 50px;
    display: inline-block;
    margin-bottom: 10px;
+   position: relative;
+   top: -30px;
+   left: 25px;
 }
    #feedInfo h2{
       margin-bottom: 0px;
@@ -47,8 +47,46 @@
    #feedPref{
       /*background: blue;*/
       float: right;
-      margin-top: -50px;
+      position: relative;
+      top: -30px;
    }
    #feedKonten{
       /*background: yellow;*/
    }
+
+
+@media (max-width: 1100px){
+   feedProfPic{
+      height: 30px;
+   }
+}
+
+@media (max-width: 1000px){
+   /*feedProfPic{
+      width: 8%;
+      height: 5px;
+   }*/
+   #feedInfo{
+      width: 85%;
+   }
+}
+
+@media (max-width: 825px){
+   /*feedProfPic{
+      width: 5%;
+      height: 1px;*/
+   /*}*/
+   #feedInfo{
+      width: 84%;
+   }
+}
+
+@media (max-width: 650px){
+   /*feedProfPic{
+      width: 5%;
+      height: 1px;*/
+   /*}*/
+   #feedInfo{
+      width: 82%;
+   }
+}
