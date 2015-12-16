@@ -6,7 +6,7 @@
          {{-- <a href=""><li><b>Notifikasi</b></li></a> --}}
          <a href="profil">
             <div id="profPicHeader">
-               <img src="public/images/orang.png"/>
+               <img src="public/images/profPic/emmaProfPic.jpg"/>
             </div>
          </a>
       </ul>

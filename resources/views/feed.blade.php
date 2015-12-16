@@ -20,32 +20,34 @@
    <div id="imgHeader"></div>
    <div id="switch"></div>
    <div id="main">
+
       <div id="feed" class="areaKonten">
          {{-- {{Auth::user()}} --}}
-
-         @foreach ($feeds as $feed)
-            <div class="feedClass">
-               <content>
-                     <div id="feedProfPic">
-                        <img src="public/images/orang.png"/>
+         @if (isset($feeds))
+            @foreach ($feeds as $feed)
+               <div class="feedClass">
+                  <content>
+                        <div id="feedProfPic">
+                           <img src="public/images/orang.png"/>
+                        </div>
+                     <div id="feedInfo">
+                        <h2>{{$feed->judul}}</h2>
+                        <span>Oleh {{$feed->idPenulis}}</span>
+                        <span>|</span>
+                        <span>{{$feed->created_at}}</span>
+                        <div id="feedPref">
+                           <span>comment</span>
+                           <span>like</span>
+                        </div>
                      </div>
-                  <div id="feedInfo">
-                     <h2>{{$feed->judul}}</h2>
-                     <span>Oleh noName</span>
-                     <span>|</span>
-                     <span>{{$feed->created_at}}</span>
-                     <div id="feedPref">
-                        <span>comment</span>
-                        <span>like</span>
+                     <div id="feedKonten">
+                        {{$feed->isi}}
                      </div>
-                  </div>
-                  <div id="feedKonten">
-                     {{$feed->isi}}
-                  </div>
-               </content>
-               <hr>
-            </div>
-         @endforeach
+                  </content>
+                  <hr>
+               </div>
+            @endforeach
+         @endif
 
       </div>
    </div>

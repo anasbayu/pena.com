@@ -1,0 +1,107 @@
+.centered{
+   margin: auto;
+}
+
+#infoArea{
+   width: 100%;
+   height: 450px;
+   /*background: green;*/
+   margin-top: 65px;
+}
+   #infoArea img#background{
+      width: 100%;
+      z-index: -1;
+      position: fixed;
+   }
+
+#bgProfPic{
+   width: 45%;
+   height: 470px;
+   background: white;
+   opacity: 0.4;
+   position:absolute;
+   top: 90px;
+   left: 350px;
+   z-index: -1;
+   border-radius: 10px;
+}
+#infoContent{
+   width: 40%;
+   min-height: 300px;
+   padding-top: 50px;
+   /*background: red;*/
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-bottom: 15px;
+}
+
+#profPic{
+   width: 150px;
+   height: 150px;
+   /*background: red;*/
+   overflow: hidden;
+   border-radius: 100%;
+}
+   #profPic img{
+      width: 100%;
+   }
+#socialMediaContainer {
+   width: 100%;
+   text-align: center;
+   margin-top: 20px;
+}
+#socialMedia{
+   display: inline-block;
+   min-width: 10px;
+   height: 50px;
+   /*background: grey;*/
+   margin: auto;
+}
+   .iconSosmed {
+      margin-right: 20px;
+   }
+   .iconSosmed:last-child {
+      margin-right: 0;
+   }
+   #socialMedia #spasi{
+      width: 30px;
+      height: 100%;
+      /*background: red;*/
+      float: left;
+   }
+   #socialMedia img{
+      height: 80%;
+      float: left;
+   }
+
+#misc{
+   width: 70%;
+   height: 60px;
+   /*background: aqua;*/
+   margin-top: 10px;
+}
+   #misc #follower{
+      width: 49%;
+      height: 100%;
+      float: left;
+      /*background: yellow;*/
+      border-right: 1px solid black;
+   }
+      #follower span, #post span{
+         font-size: 30px;
+         font-weight: bold;
+      }
+   #misc #post{
+      width: 50%;
+      height: 100%;
+      float: right;
+      /*background: red;*/
+   }
+
+#feedHistory{
+   z-index: 1;
+   background: white;
+   padding-top: 20px;
+   padding-bottom: 1px;
+   margin-bottom: 50px;
+}

@@ -89,4 +89,8 @@
    #feedInfo{
       width: 82%;
    }
+   #feedPref{
+      position: static;
+      float: left;
+   }
 }

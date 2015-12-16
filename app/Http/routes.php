@@ -1,13 +1,4 @@
 <?php
-// // Authentication routes...
-// Route::get('auth/login', 'Auth\AuthController@getLogin');
-// Route::post('auth/login', 'Auth\AuthController@postLogin');
-// Route::get('auth/logout', 'Auth\AuthController@getLogout');
-//
-// // Registration routes...
-// Route::get('auth/register', 'Auth\AuthController@getRegister');
-// Route::post('auth/register', 'Auth\AuthController@postRegister');
-
 
 Route::get('/', function () {
     return view('homepage');
@@ -15,11 +6,26 @@ Route::get('/', function () {
 
 Route::get('/feed', 'ceritaController@feeds');
 
-Route::get('/profil', function(){
-   return view('profil');
+Route::get('/profil', function()
+{
+   $user = Auth::user();
+   $feeds = App\Cerita::all();
+   if(isset($user) && isset($feeds))
+   {
+      return view('profil')->with('user', $user)->with('feeds', $feeds);
+   }
+   else
+   {
+      return view('profil');
+   }
 });
 
 Route::post('login', 'userController@login');
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return "logged out";
+});
 
 Route::resource('/buatUser', 'userController');
 

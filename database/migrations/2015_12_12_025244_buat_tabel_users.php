@@ -28,6 +28,6 @@ class BuatTabelUsers extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('users');
     }
 }

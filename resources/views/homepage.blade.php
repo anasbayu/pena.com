@@ -21,7 +21,7 @@
          <form method="post" action="login">
             <input type="text" name="username" placeholder="Nama" required="true"/><br>
             <input type="password" name="pass" placeholder="Kata sandi" required="true"/><br>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <button>Masuk</button>
          </form>
          <span>Belum memiliki akun? <b><a href="buatUser">daftar sekarang!</a></b></span>

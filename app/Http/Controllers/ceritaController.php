@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Cerita;
+use App\User;
+use Auth;
 
 class ceritaController extends Controller
 {
@@ -17,7 +19,8 @@ class ceritaController extends Controller
      */
     public function index()
     {
-      return view('tulisBaru');
+      $user = Auth::user();
+      return view('tulisBaru')->with('user', $user);
     }
 
     /**
@@ -44,7 +47,7 @@ class ceritaController extends Controller
       $cerita->idPenulis = $request->idPenulis;
       $cerita->save();
 
-      return redirect('feed');
+      return redirect()->action('ceritaController@feeds');
     }
 
     /**
@@ -95,6 +98,14 @@ class ceritaController extends Controller
     public function feeds()
     {
       $feeds = Cerita::all();
-      return view('feed')->with('feeds', $feeds);
+      $pengarang = array();
+      foreach ($feeds as $feed)
+      {
+         $pengarang = User::find($feed->idPenulis);
+      }
+
+      // $feeds = Cerita::with('User')->get();
+
+      return view('feed')->with('feeds', $feeds)->with('pengarang', $pengarang);
     }
 }

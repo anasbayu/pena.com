@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 USE App\User;
 use Auth;
+use Hash;
 use Illuminate\Contracts\Auth\Authenticable;
 
 class userController extends Controller
@@ -44,12 +45,10 @@ class userController extends Controller
     {
       $user = NEW User;
       $user->username = $request->username;
-      $user->pass = $request->pass;
+      $user->password = Hash::make($request->pass);
       $user->save();
 
-      // $user = $request::all();
-      // $buat = User::create($user);
-      return view('feed');
+      return redirect()->action('ceritaController@feeds');
     }
 
     /**
@@ -101,8 +100,10 @@ class userController extends Controller
     public function login(Request $request)
     {
       $user = array('username' => $request->username,
-                    'pass' => $request->pass);
-      $auth = Auth::attempt($user);
+                    'password' => $request->pass);
+
+      $auth = Auth::attempt(array('username' => $user['username'],
+                              'password' => $user['password']));
       if($auth)
       {
          // return 'yeay';
@@ -110,7 +111,8 @@ class userController extends Controller
       }
       else
       {
-         return $user;
+         // return Auth::check();
+         return "Hai " .  $user['username'] . ", pass: " . $user['password'] . " a $auth";
       }
     }
 }

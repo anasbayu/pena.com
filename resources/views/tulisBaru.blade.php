@@ -21,7 +21,7 @@
       <form action="tulisBaru" method="post">
          <input type="text" name="judul" placeholder="judul"/><br>
          <textarea id="textarea" name="isi" placeholder="Tulis ceritamu disini"></textarea><br>
-         <input type="hidden" name="idPenulis" placeholder="judul" value="1"/><br>
+         <input type="hidden" name="idPenulis" value={{$user->id}}/><br>
          <input type="hidden" name="_token" value="{{ csrf_token() }}">
          <div class="jumlahHuruf">
             Jumhlah kata: <span id="jumlahHuruf">jumlah</span>
