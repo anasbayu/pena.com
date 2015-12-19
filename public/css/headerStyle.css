@@ -4,13 +4,24 @@ body{
    overflow-y: scroll;
 }
 
-#header{
+#headerContainer{
    width: 100%;
-   min-height: 50px;
+   height: 70px;
    background: black;
    position: fixed;
    top: 0px;
+   opacity: 0.2;
    z-index: 3;
+   filter: blur(7px);
+}
+#header{
+   width: 100%;
+   min-height: 50px;
+   /*background: black;*/
+   position: fixed;
+   top: 0px;
+   z-index: 3;
+   /*border-bottom: 1px solid black;*/
 }
    #header img#logoHeader{
       width: 100px;
@@ -41,7 +52,7 @@ body{
       list-style: none;
       display: inline;
       text-align: center;
-      color: white;
+      color: black;
    }
    #menu ul a li:hover{
       text-decoration: underline;

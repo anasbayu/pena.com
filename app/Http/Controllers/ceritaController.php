@@ -19,8 +19,15 @@ class ceritaController extends Controller
      */
     public function index()
     {
-      $user = Auth::user();
-      return view('tulisBaru')->with('user', $user);
+      if(Auth::check())
+      {
+         $user = Auth::user();
+         return view('tulisBaru')->with('user', $user);
+      }
+      else
+      {
+         return redirect('/');
+      }
     }
 
     /**
@@ -44,10 +51,10 @@ class ceritaController extends Controller
       $cerita = new Cerita;
       $cerita->judul = $request->judul;
       $cerita->isi = $request->isi;
-      $cerita->idPenulis = $request->idPenulis;
+      $cerita->user_id = $request->user_id;
       $cerita->save();
 
-      return redirect()->action('ceritaController@feeds');
+      return redirect('feed');
     }
 
     /**
@@ -95,17 +102,4 @@ class ceritaController extends Controller
         //
     }
 
-    public function feeds()
-    {
-      $feeds = Cerita::all();
-      $pengarang = array();
-      foreach ($feeds as $feed)
-      {
-         $pengarang = User::find($feed->idPenulis);
-      }
-
-      // $feeds = Cerita::with('User')->get();
-
-      return view('feed')->with('feeds', $feeds)->with('pengarang', $pengarang);
-    }
 }

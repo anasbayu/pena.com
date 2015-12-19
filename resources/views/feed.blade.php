@@ -17,12 +17,12 @@
 
 @section('body')
    @include('templates/header')
-   <div id="imgHeader"></div>
-   <div id="switch"></div>
+   {{-- <div id="imgHeader"></div> --}}
+   {{-- <div id="switch"></div> --}}
    <div id="main">
 
       <div id="feed" class="areaKonten">
-         {{-- {{Auth::user()}} --}}
+
          @if (isset($feeds))
             @foreach ($feeds as $feed)
                <div class="feedClass">
@@ -31,8 +31,12 @@
                            <img src="public/images/orang.png"/>
                         </div>
                      <div id="feedInfo">
-                        <h2>{{$feed->judul}}</h2>
-                        <span>Oleh {{$feed->idPenulis}}</span>
+                        <a href="cerita/{{$feed->idCerita}}"><h2>{{$feed->judul}}</h2></a>
+                        <span>
+                           Oleh <a href="{{action('userController@show', $feed->user_id)}}">
+                              {{App\User::find($feed->user_id)->username}}
+                           </a>
+                        </span>
                         <span>|</span>
                         <span>{{$feed->created_at}}</span>
                         <div id="feedPref">
@@ -49,6 +53,7 @@
             @endforeach
          @endif
 
+         {{-- @include('templates/feedsTemplate.blade.php') --}}
       </div>
    </div>
 @endsection

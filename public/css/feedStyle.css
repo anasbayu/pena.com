@@ -40,10 +40,17 @@
    top: -30px;
    left: 25px;
 }
-   #feedInfo h2{
-      margin-bottom: 0px;
-      margin-top: -0px;
+   #feedInfo a{
+      text-decoration: none;
+      color: black;
    }
+   #feedInfo a:hover{
+      color: blue;
+   }
+      #feedInfo a h2{
+         margin-bottom: 0px;
+         margin-top: -0px;
+      }
    #feedPref{
       /*background: blue;*/
       float: right;

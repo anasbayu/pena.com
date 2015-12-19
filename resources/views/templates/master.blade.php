@@ -21,7 +21,7 @@
          .areaKonten{
             margin: auto;
             width: 75%;
-            min-height: 300px;
+            min-height: 100px;
             /*background: red;*/
             font-family: 'Montserrat', sans-serif;
 

@@ -19,50 +19,56 @@
    <div id="infoArea">
       <img id="background" src="public/images/profPic/emmaCover.jpg"/>
       <div class="centered" id="infoContent">
+         <div id="profilSetting">
+            <a href="{{ route('user.edit', $user->id) }}">
+               <img src="public/images/logo/facebook.png"/>
+            </a>
+         </div>
          <div class="centered" id="bgProfPic">
          </div>
          <div id="profPic" class="centered">
-            <img src="public/images/profPic/emmaProfpic.jpg"/>
+            <img src="public/images/profPic/scarlet.png"/>
          </div>
          <center>
             @if (isset($user))
                <h2>{{$user->username}}</h2>
+               <span>{{$user->deskripsi}}</span>
             @else
                <h2>NoName</h2>
+               <span>deskripsi</span>
             @endif
-            <span>{{$user->deskripsi}}</span>
          </center>
          <div id="socialMediaContainer">
             <div class="centered" id="socialMedia">
                @if (isset($user))
                   @if ($user->linkfb != "")
-                     {{-- <a href="{{$user->linkfb}}"> --}}
-                        <img class="iconSosmed" src="public/images/logo/facebook.png"/>
-                     {{-- </a> --}}
+                     <a href="{{$user->linkfb}}">
+                        <img src="public/images/logo/facebook.png"/>
+                     </a>
                   @endif
                   @if ($user->linktwitter != "")
-                     {{-- <a href="{{$user->linktwitter}}"> --}}
-                        <img class="iconSosmed" src="public/images/logo/twitter.png"/>
-                    {{-- </a> --}}
+                     <a href="{{$user->linktwitter}}">
+                        <img src="public/images/logo/twitter.png"/>
+                    </a>
                   @endif
-                  {{-- @if ($user->linkinstagram != "")
+                  @if ($user->linkinstagram != "")
                   <a href="{{$user->linkinstagram}}">
-                     <img class="iconSosmed" src="public/images/orang.png"/>
+                     <img src="public/images/logo/facebook.png"/>
                   </a>
-                  @endif --}}
+                  @endif
                @endif
             </div>
          </div>
          <div id="misc" class="centered">
             <div id="follower">
                <center>
-                  <span>21 K</span><br>
+                  <span>{{$user->follower->count()}}</span><br>
                   Follower
                <center>
             </div>
             <div id="post">
                <center>
-                  <span>1000</span><br>
+                  <span>{{$user->cerita->count()}}</span><br>
                   Post
                <center>
             </div>
@@ -72,25 +78,27 @@
 
    <div class="areaKonten marginTop100px" id="feedHistory">
 
-      @if (isset($feeds))
-         @foreach ($feeds as $feed)
+      @if (isset($user))
+         @foreach ($user->cerita as $cerita)
             <div class="feedClass">
                <content>
                      <div id="feedProfPic">
                         <img src="public/images/profPic/emmaProfPic.jpg"/>
                      </div>
                   <div id="feedInfo">
-                     <h2>{{$feed->judul}}</h2>
-                     <span>Oleh {{$feed->idPenulis}}</span>
+                     <a href="cerita/{{$cerita->idCerita}}"/><h2>{{$cerita->judul}}</h2></a>
+                     <span>Oleh {{$user->username}}</span>
                      <span>|</span>
-                     <span>{{$feed->created_at}}</span>
+                     <span>{{$cerita->created_at}}</span>
                      <div id="feedPref">
                         <span>comment</span>
-                        <span>like</span>
+                        {{-- <a href="{{action('pageController@like', $cerita->user_id)}}"> --}}
+                           <span>like</span>
+                        {{-- </a> --}}
                      </div>
                   </div>
                   <div id="feedKonten">
-                     {{$feed->isi}}
+                     {{$cerita->isi}}
                   </div>
                </content>
                <hr>

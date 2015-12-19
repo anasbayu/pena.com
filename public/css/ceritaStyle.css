@@ -1,0 +1,17 @@
+.kontenCerita{
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+
+   padding: 20px;
+   min-height: 200px;
+}
+
+a{
+   text-decoration: none;
+   color: black;
+}
+
+a:hover{
+   color: blue;
+}

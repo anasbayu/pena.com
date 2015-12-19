@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cerita extends Model
 {
    protected $table = "feeds";
+   protected $primaryKey = "idCerita";
 
    public function pengarang()
    {

@@ -19,7 +19,7 @@ class User extends \Eloquent implements AuthenticatableContract,
    protected $table = "users";
    protected $primaryKey = "id";
    protected $hidden = "pass";
-
+   protected $fillable = array('email', 'deskripsi', 'linkfb', 'linktwitter', 'linkinstagram', 'profpic', 'cover');
 
    public function getAuthPass()
    {
@@ -29,5 +29,10 @@ class User extends \Eloquent implements AuthenticatableContract,
    public function cerita()
    {
       return $this->hasMany('App\Cerita');
+   }
+
+   public function follower()
+   {
+      return $this->hasMany('App\Follower');
    }
 }

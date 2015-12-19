@@ -43,12 +43,13 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-      $user = NEW User;
+      $user = new User;
       $user->username = $request->username;
+      $user->email = $request->email;
       $user->password = Hash::make($request->pass);
       $user->save();
 
-      return redirect()->action('ceritaController@feeds');
+      return redirect('/');
     }
 
     /**
@@ -59,8 +60,18 @@ class userController extends Controller
      */
     public function show($id)
     {
-      $user = User::find(1);
-      return $user->username;
+      $user = User::findOrFail($id);
+      $currentUser = Auth::user();
+
+      // Jika user yang dimaksud adalah dirinya sendiri, kembalikan ke profi.
+      if($currentUser->id == $user->id)
+      {
+         return redirect('profil');
+      }
+      else
+      {
+         return view('profil')->with('user', $user);
+      }
     }
 
     /**
@@ -71,7 +82,8 @@ class userController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = Auth::user();
+      return view('editUser')->with('user', $user);
     }
 
     /**
@@ -83,7 +95,10 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // $user = Auth::user();
+      // $user->email = $request->email;
+      // $user->save();
+      return "aa";
     }
 
     /**
@@ -97,22 +112,4 @@ class userController extends Controller
         //
     }
 
-    public function login(Request $request)
-    {
-      $user = array('username' => $request->username,
-                    'password' => $request->pass);
-
-      $auth = Auth::attempt(array('username' => $user['username'],
-                              'password' => $user['password']));
-      if($auth)
-      {
-         // return 'yeay';
-         return redirect('feed');
-      }
-      else
-      {
-         // return Auth::check();
-         return "Hai " .  $user['username'] . ", pass: " . $user['password'] . " a $auth";
-      }
-    }
 }

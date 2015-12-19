@@ -34,6 +34,10 @@ textarea{
    padding: 10px;
 }
 
+#deskripsi{
+   min-height: 100px;
+}
+
 .jumlahHuruf{
    position: relative;
    right: 20%;

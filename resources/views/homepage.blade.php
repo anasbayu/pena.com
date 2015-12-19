@@ -24,7 +24,7 @@
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <button>Masuk</button>
          </form>
-         <span>Belum memiliki akun? <b><a href="buatUser">daftar sekarang!</a></b></span>
+         <span>Belum memiliki akun? <b><a href="user">daftar sekarang!</a></b></span>
       </div>
    </div>
    <div id="gambarOrangArea" class="section">

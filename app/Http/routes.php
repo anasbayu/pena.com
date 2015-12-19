@@ -1,32 +1,19 @@
 <?php
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', 'pageController@home');
 
-Route::get('/feed', 'ceritaController@feeds');
+Route::get('feed', 'pageController@feeds');
 
-Route::get('/profil', function()
-{
-   $user = Auth::user();
-   $feeds = App\Cerita::all();
-   if(isset($user) && isset($feeds))
-   {
-      return view('profil')->with('user', $user)->with('feeds', $feeds);
-   }
-   else
-   {
-      return view('profil');
-   }
-});
+Route::get('profil','pageController@profil');
 
-Route::post('login', 'userController@login');
+Route::post('login', 'pageController@login');
 
-Route::get('/logout', function () {
-    Auth::logout();
-    return "logged out";
-});
+Route::get('logout', 'pageController@logout');
 
-Route::resource('/buatUser', 'userController');
+Route::get('cerita/{id}', 'pageController@cerita');
 
-Route::resource('/tulisBaru', 'ceritaController');
+Route::get('user/update', 'pageController@update');
+
+Route::resource('user', 'userController');
+
+Route::resource('tulis', 'ceritaController');

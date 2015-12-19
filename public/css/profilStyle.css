@@ -12,6 +12,7 @@
       width: 100%;
       z-index: -1;
       position: fixed;
+      top: 0px;
    }
 
 #bgProfPic{
@@ -34,7 +35,12 @@
    padding-right: 15px;
    padding-bottom: 15px;
 }
-
+   #profilSetting{
+      float: right;
+   }
+      #profilSetting img{
+         width: 25px;
+      }
 #profPic{
    width: 150px;
    height: 150px;
@@ -50,25 +56,22 @@
    text-align: center;
    margin-top: 20px;
 }
-#socialMedia{
+#socialMedia,
+#socialMedia a{
    display: inline-block;
-   min-width: 10px;
+   /*min-width: 10px;*/
    height: 50px;
    /*background: grey;*/
    margin: auto;
+   padding: 0px;
 }
-   .iconSosmed {
-      margin-right: 20px;
-   }
-   .iconSosmed:last-child {
-      margin-right: 0;
-   }
-   #socialMedia #spasi{
-      width: 30px;
-      height: 100%;
-      /*background: red;*/
-      float: left;
-   }
+#socialMedia a{
+   margin-right: 10px;
+   float: left;
+}
+#socialMedia a:last-child {
+   margin-right: 0px;
+}
    #socialMedia img{
       height: 80%;
       float: left;
@@ -94,7 +97,8 @@
    #misc #post{
       width: 50%;
       height: 100%;
-      float: right;
+      float: left;
+      border-left: 1px solid black;
       /*background: red;*/
    }
 
