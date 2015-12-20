@@ -41,6 +41,13 @@
       #profilSetting img{
          width: 25px;
       }
+      #profilSetting span a{
+         text-decoration: none;
+         color: black;
+      }
+         #profilSetting span a:hover{
+            color: blue;
+         }
 #profPic{
    width: 150px;
    height: 150px;
@@ -109,3 +116,13 @@
    padding-bottom: 1px;
    margin-bottom: 50px;
 }
+   #notif{
+      margin-top: 25px;
+      font-size: 25px;
+      font-weight: bold;
+      display: block;
+   }
+   #isi{
+      line-height: 25px;
+      display: block;
+   }

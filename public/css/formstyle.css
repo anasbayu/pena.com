@@ -26,12 +26,13 @@ form button{
 textarea{
    resize: none;
    width: 80%;
-   min-height: 300px;
+   min-height: 17em;
    font-size: 18px;
    border: none;
    border-bottom: 1px solid grey;
    margin-top: 20px;
    padding: 10px;
+   line-height: 30px;
 }
 
 #deskripsi{

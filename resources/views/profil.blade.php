@@ -5,7 +5,8 @@
 @endsection
 
 @section('script')
-
+   <script src="{{ URL::asset('public/js/jquery-2.1.4.min.js') }}"></script>
+   <script src="{{ URL::asset('public/js/header.js') }}"></script>
 @endsection
 
 @section('style')
@@ -18,7 +19,7 @@
    @include('templates/header')
    <div id="infoArea">
       {{-- <img id="background" src="public/images/profPic/emmaCover.jpg"/> --}}
-      <img id="background" src="{{$user->cover}}"/>
+      <img id="background" src="{{asset($user->cover)}}"/>
       <div class="centered" id="infoContent">
          <div id="profilSetting">
             @if ($user != Auth::user())
@@ -33,7 +34,7 @@
          <div class="centered" id="bgProfPic">
          </div>
          <div id="profPic" class="centered">
-            <img src="{{$user->profpic}}"/>
+            <img src="{{asset($user->profpic)}}"/>
             {{-- <img src="public/images/profPic/scarlet.png"/> --}}
          </div>
          <center>
@@ -90,14 +91,16 @@
             <div class="feedClass">
                <content>
                      <div id="feedProfPic">
-                        {{-- <img src="public/images/profPic/emmaProfPic.jpg"/> --}}
-                        <img src="{{$user->profpic}}"/>
+                        <div id="feedProfPicContainer">
+                           <img src="{{asset($user->profpic)}}"/>
+                        </div>
                      </div>
                   <div id="feedInfo">
                      <a href="{{url('cerita'). '/' . $cerita->idCerita}}"/><h2>{{$cerita->judul}}</h2></a>
                      <span>Oleh {{$user->username}}</span>
                      <span>|</span>
-                     <span>{{$cerita->created_at}}</span>
+                     <span>{{$cerita->created_at}}</span><br>
+                     <span>{{$cerita->views}} views</span>
                      <div id="feedPref">
                         <span>comment</span>
                         {{-- <a href="{{action('pageController@like', $cerita->user_id)}}"> --}}
@@ -106,12 +109,17 @@
                      </div>
                   </div>
                   <div id="feedKonten">
-                     {{$cerita->isi}}
+                     <span id="isi">{!! nl2br(e($cerita->isi)) !!}</span>
                   </div>
                </content>
                <hr>
             </div>
          @endforeach
+         @if ($user->cerita->count() == 0)
+            <center>
+               <span id="notif">Pengguna ini belum menuliskan ceritanya :(</span>
+            </center>
+         @endif
       @endif
 
    </div>

@@ -51,14 +51,14 @@ class pageController extends Controller
    {
       if(Auth::check())
       {
-         $feeds = Cerita::all();
-         $pengarang = array();
-         foreach ($feeds as $feed)
-         {
-            $pengarang = User::find($feed->idPenulis);
-         }
+         $feeds = Cerita::orderBy('views', 'DESC')->get();
+         $user = Auth::user();
+         // foreach ($feeds as $feed)
+         // {
+         //    $pengarang = User::find($feed->idPenulis);
+         // }
 
-         return view('feed')->with('feeds', $feeds)->with('pengarang', $pengarang);
+         return view('feed')->with('feeds', $feeds)->with('user', $user);
       }
       else
       {
@@ -73,9 +73,11 @@ class pageController extends Controller
 
      $auth = Auth::attempt(array('username' => $user['username'],
                              'password' => $user['password']));
+
      if($auth)
      {
-        return redirect('feed');
+        $profPic = Auth::user();
+        return redirect('feed')->with('user', $user);;
      }
      else
      {
@@ -93,12 +95,13 @@ class pageController extends Controller
    {
       if(Auth::check())
       {
+         $user = Auth::user();
          $cerita = Cerita::findOrFail($id);
          $views = $cerita->views;
          $views += 1;
          $cerita->views = $views;
          $cerita->save();
-         return view('cerita')->with('cerita', $cerita);
+         return view('cerita')->with('cerita', $cerita)->with('user', $user);
       }
       else
       {
@@ -154,7 +157,7 @@ class pageController extends Controller
 
       $user->save();
 
-      return redirect('profil');
+      return redirect('profil')->with('user', $user);;
 
       // return dd($path);
    }

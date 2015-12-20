@@ -1,5 +1,5 @@
 body{
-   background: white;
+   background: rgb(240, 240, 240);
 }
 
 #overlay{
@@ -26,20 +26,15 @@ body{
    padding-top: 100px;
    z-index: 2;
    position: relative;
-   background: white;
+   /*background-image: url('../images/seamles.jpg');*/
+   /*background: rgb(240, 240, 240);*/
    width: 100%;
 }
 
-/*#switch{
-   width: 150px;
-   height: 150px;
-   position: absolute;
-   top: 450px;
-   left: 45%;
-   background: white;
-   z-index: 3;
-   border-radius: 100%;
-}*/
+#isi{
+   line-height: 25px;
+   display: block;
+}
 
 @media (max-width: 930px){
    #logo{

@@ -17,7 +17,7 @@
 @section('body')
    @include('templates/header')
 
-   <div class="areaKonten marginTop100px">
+   <div class="areaKonten marginTop100px paddingLeft20px">
       <form action="tulis" method="post">
          <input type="text" name="judul" placeholder="judul" /><br>
          <textarea id="textarea" name="isi" placeholder="Tulis ceritamu disini"></textarea><br>

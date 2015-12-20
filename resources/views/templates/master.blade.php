@@ -6,8 +6,9 @@
       </title>
       <!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'> -->
       <style>
-         body{
+         body, #main{
             font-family: 'Montserrat', sans-serif;
+            background-image: url({{asset('public/images/seamless2.jpg')}});
          }
          input{
             font-family: 'Montserrat', sans-serif;
@@ -22,12 +23,15 @@
             margin: auto;
             width: 75%;
             min-height: 100px;
-            /*background: red;*/
+            background: white;
             font-family: 'Montserrat', sans-serif;
 
          }
          .marginTop100px{
             margin-top: 100px;
+         }
+         .paddingLeft20px{
+            padding-left: 20px;
          }
 
          @media (max-width: 499px){

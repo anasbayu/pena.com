@@ -28,7 +28,9 @@
                <div class="feedClass">
                   <content>
                         <div id="feedProfPic">
-                           <img src="{{App\User::find($feed->user_id)->profpic}}"/>
+                           <div id="feedProfPicContainer">
+                              <img src="{{App\User::find($feed->user_id)->profpic}}"/>
+                           </div>
                         </div>
                      <div id="feedInfo">
                         <a href="cerita/{{$feed->idCerita}}"><h2>{{$feed->judul}}</h2></a>
@@ -38,14 +40,18 @@
                            </a>
                         </span>
                         <span>|</span>
-                        <span>{{$feed->created_at}}</span>
+                        <span>{{$feed->created_at}}</span><br>
+                        <span>{{$feed->views}} views</span>
                         <div id="feedPref">
-                           <span>comment</span>
-                           <span>like</span>
+                           {{-- <span>comment</span>
+                           <span>like</span> --}}
+                           <img class="icon" src="{{asset('public/images/logo/comment.png')}}" />
+                           <img class="icon" src="{{asset('public/images/logo/love.png')}}" />
                         </div>
                      </div>
                      <div id="feedKonten">
-                        {{$feed->isi}}
+                        {{-- {{$feed->isi}} --}}
+                        <span id="isi">{!! nl2br(e($feed->isi)) !!}</span>
                      </div>
                   </content>
                   <hr>

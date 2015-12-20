@@ -72,7 +72,7 @@ body{
 }
 
 @media (max-width: 499px){
-   #header{
+   #header, #headerContainer{
       display: none;
    }
 }

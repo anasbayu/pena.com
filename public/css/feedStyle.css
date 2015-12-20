@@ -23,21 +23,30 @@
    width: 10%;
    height: 80px;
    border: none;
-   border-radius: 50%;
-   overflow: hidden;
    display: inline-block;
+   /*background-color: red;*/
+   position: absolute;
 }
-   #feedProfPic img{
-      width: 100%;
+   #feedProfPicContainer{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-block;
+
    }
+      #feedProfPicContainer img{
+         width: 100%;
+      }
 #feedInfo{
    /*background: aqua;*/
    width: 86%;
    min-height: 50px;
    display: inline-block;
    margin-bottom: 10px;
+   margin-left: 70px;
    position: relative;
-   top: -30px;
+   top: 0px;
    left: 25px;
 }
    #feedInfo a{
@@ -55,10 +64,15 @@
       /*background: blue;*/
       float: right;
       position: relative;
-      top: -30px;
+      top: -45px;
    }
+      .icon{
+         width: 35px;
+         margin-right: 10px;
+      }
    #feedKonten{
       /*background: yellow;*/
+      margin-bottom: 30px;
    }
 
 
@@ -88,6 +102,16 @@
    }
 }
 
+@media (max-width: 770px){
+   #feedProfPicContainer{
+      width: 70px;
+      height: 70px;
+   }
+   #feedInfo{
+      margin-left: 55px;
+   }
+}
+
 @media (max-width: 650px){
    /*feedProfPic{
       width: 5%;
@@ -99,5 +123,16 @@
    #feedPref{
       position: static;
       float: left;
+   }
+}
+
+@media (max-width: 571px){
+   #feedProfPicContainer{
+      width: 60px;
+      height: 60px;
+   }
+
+   #feedInfo{
+      margin-left: 45px;
    }
 }

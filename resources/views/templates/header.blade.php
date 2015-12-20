@@ -7,7 +7,12 @@
          {{-- <a href=""><li><b>Notifikasi</b></li></a> --}}
          <a href="{{url('profil')}}">
             <div id="profPicHeader">
-               <img src="{{asset('public/images/profPic/emmaProfPic.jpg')}}"/>
+               {{-- <img src="{{asset('public/images/profPic/emmaProfPic.jpg')}}"/> --}}
+               @if ($user != Auth::user())
+                  <img src="{{asset($currentUser['profpic'])}}"/>
+               @else
+                  <img src="{{asset($user['profpic'])}}"/>
+               @endif
             </div>
          </a>
       </ul>

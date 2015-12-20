@@ -48,6 +48,8 @@ class userController extends Controller
       $user->nama = $request->username;
       $user->email = $request->email;
       $user->password = Hash::make($request->pass);
+      $user->profpic = "public/images/logo/people.png";
+      $user->cover = "public/images/cover/cover.jpg";
       $user->save();
 
       return redirect('/');
@@ -73,7 +75,7 @@ class userController extends Controller
          }
          else
          {
-            return view('profil')->with('user', $user);
+            return view('profil')->with('user', $user)->with('currentUser', $currentUser);
          }
       }
       else

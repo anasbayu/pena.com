@@ -48,13 +48,15 @@ class ceritaController extends Controller
      */
     public function store(Request $request)
     {
+      $user = Auth::user();
       $cerita = new Cerita;
       $cerita->judul = $request->judul;
       $cerita->isi = $request->isi;
       $cerita->user_id = $request->user_id;
+      $cerita->views = 0;
       $cerita->save();
 
-      return redirect('feed');
+      return redirect('feed')->with('user', $user);;
     }
 
     /**

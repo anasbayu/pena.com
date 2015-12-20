@@ -19,7 +19,7 @@
    <div id="section1Home" class="section">
       <div id="formDaftar">
          <form method="post" action="login">
-            <input type="text" name="username" placeholder="Nama" required="true"/><br>
+            <input type="text" name="username" placeholder="Username" required="true"/><br>
             <input type="password" name="pass" placeholder="Kata sandi" required="true"/><br>
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <button>Masuk</button>
