@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TabelUsers extends Migration
+class AlterTabelFeedsGantiTipe extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,7 @@ class TabelUsers extends Migration
      */
     public function up()
     {
-        Schema::create('users', function(Blueprint $table)
-        {
-           $table->increments('id');
-           $table->string('username');
-           $table->string('pass');
-        });
+        DB::statement('ALTER TABLE feeds MODIFY COLUMN isi TEXT');
     }
 
     /**
@@ -27,6 +22,6 @@ class TabelUsers extends Migration
      */
     public function down()
     {
-        //
+        DB::statement('ALTER TABLE feeds MODIFY COLUMN isi VARCHAR(255)');
     }
 }

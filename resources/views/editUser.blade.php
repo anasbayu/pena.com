@@ -15,7 +15,8 @@
 @section('body')
    <div class="areaKonten marginTop100px">
       <div id="formEdit">
-         <form method="put" action="{{action('pageController@update')}}">
+         <form method="post" enctype="multipart/form-data"
+            action="{{action('pageController@update')}}" >
             <input type="text" name="username" value="{{$user->username}}" readonly=""/><br>
             <input type="email" name="email" placeholder="Email" value="{{$user->email}}"
                required="true"/><br>
@@ -29,8 +30,8 @@
             <input type="text" name="linkinstagram" placeholder="link instagram"
                value="{{$user->linkinstagram}}" /><br>
             <textarea maxlength="150" name="deskripsi" placeholder="Deskripsi" id="deskripsi">{{$user->deskripsi}}</textarea><br>
-            {{-- <input type="file" name="profPic"/>
-            <input type="file" name="cover"/> --}}
+            <input type="file" name="profPic"/><br>
+            <input type="file" name="cover"/><br>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <button>Edit</button>
          </form>

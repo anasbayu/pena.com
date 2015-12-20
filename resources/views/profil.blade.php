@@ -17,21 +17,28 @@
 @section('body')
    @include('templates/header')
    <div id="infoArea">
-      <img id="background" src="public/images/profPic/emmaCover.jpg"/>
+      {{-- <img id="background" src="public/images/profPic/emmaCover.jpg"/> --}}
+      <img id="background" src="{{$user->cover}}"/>
       <div class="centered" id="infoContent">
          <div id="profilSetting">
-            <a href="{{ route('user.edit', $user->id) }}">
-               <img src="public/images/logo/facebook.png"/>
-            </a>
+            @if ($user != Auth::user())
+               <span><a href="{{redirect('follow')}}">Follow</a></span>
+            @endif
+            @if ($user == Auth::user())
+               <a href="{{ route('user.edit', $user->id) }}">
+                  <img src="{{asset('public/images/logo/facebook.png')}}"/>
+               </a>
+            @endif
          </div>
          <div class="centered" id="bgProfPic">
          </div>
          <div id="profPic" class="centered">
-            <img src="public/images/profPic/scarlet.png"/>
+            <img src="{{$user->profpic}}"/>
+            {{-- <img src="public/images/profPic/scarlet.png"/> --}}
          </div>
          <center>
             @if (isset($user))
-               <h2>{{$user->username}}</h2>
+               <h2>{{$user->nama}}</h2>
                <span>{{$user->deskripsi}}</span>
             @else
                <h2>NoName</h2>
@@ -43,17 +50,17 @@
                @if (isset($user))
                   @if ($user->linkfb != "")
                      <a href="{{$user->linkfb}}">
-                        <img src="public/images/logo/facebook.png"/>
+                        <img src="{{asset('public/images/logo/facebook.png')}}"/>
                      </a>
                   @endif
                   @if ($user->linktwitter != "")
                      <a href="{{$user->linktwitter}}">
-                        <img src="public/images/logo/twitter.png"/>
+                        <img src="{{asset('public/images/logo/twitter.png')}}"/>
                     </a>
                   @endif
                   @if ($user->linkinstagram != "")
                   <a href="{{$user->linkinstagram}}">
-                     <img src="public/images/logo/facebook.png"/>
+                     <img src="{{asset('public/images/logo/facebook.png')}}"/>
                   </a>
                   @endif
                @endif
@@ -83,10 +90,11 @@
             <div class="feedClass">
                <content>
                      <div id="feedProfPic">
-                        <img src="public/images/profPic/emmaProfPic.jpg"/>
+                        {{-- <img src="public/images/profPic/emmaProfPic.jpg"/> --}}
+                        <img src="{{$user->profpic}}"/>
                      </div>
                   <div id="feedInfo">
-                     <a href="cerita/{{$cerita->idCerita}}"/><h2>{{$cerita->judul}}</h2></a>
+                     <a href="{{url('cerita'). '/' . $cerita->idCerita}}"/><h2>{{$cerita->judul}}</h2></a>
                      <span>Oleh {{$user->username}}</span>
                      <span>|</span>
                      <span>{{$cerita->created_at}}</span>

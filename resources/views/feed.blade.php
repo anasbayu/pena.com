@@ -28,7 +28,7 @@
                <div class="feedClass">
                   <content>
                         <div id="feedProfPic">
-                           <img src="public/images/orang.png"/>
+                           <img src="{{App\User::find($feed->user_id)->profpic}}"/>
                         </div>
                      <div id="feedInfo">
                         <a href="cerita/{{$feed->idCerita}}"><h2>{{$feed->judul}}</h2></a>

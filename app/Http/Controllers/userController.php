@@ -45,6 +45,7 @@ class userController extends Controller
     {
       $user = new User;
       $user->username = $request->username;
+      $user->nama = $request->username;
       $user->email = $request->email;
       $user->password = Hash::make($request->pass);
       $user->save();
@@ -60,17 +61,24 @@ class userController extends Controller
      */
     public function show($id)
     {
-      $user = User::findOrFail($id);
-      $currentUser = Auth::user();
-
-      // Jika user yang dimaksud adalah dirinya sendiri, kembalikan ke profi.
-      if($currentUser->id == $user->id)
+      if(Auth::check())
       {
-         return redirect('profil');
+         $user = User::findOrFail($id);
+         $currentUser = Auth::user();
+
+         // Jika user yang dimaksud adalah dirinya sendiri, kembalikan ke profi.
+         if($currentUser->id == $user->id)
+         {
+            return redirect('profil');
+         }
+         else
+         {
+            return view('profil')->with('user', $user);
+         }
       }
       else
       {
-         return view('profil')->with('user', $user);
+         return redirect('/');
       }
     }
 
@@ -82,8 +90,15 @@ class userController extends Controller
      */
     public function edit($id)
     {
-      $user = Auth::user();
-      return view('editUser')->with('user', $user);
+      if(Auth::check())
+      {
+         $user = Auth::user();
+         return view('editUser')->with('user', $user);
+      }
+      else
+      {
+         return redirect('/');
+      }
     }
 
     /**

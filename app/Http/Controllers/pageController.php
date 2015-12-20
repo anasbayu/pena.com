@@ -7,22 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use Image;
 use App\Cerita;
 use App\User;
 
 class pageController extends Controller
 {
-   public function cekAuth()
-   {
-      if(Auth::check())
-      {
-         return "yey";
-      }
-      else
-      {
-         return redirect('/');
-      }
-   }
 
    public function home()
    {
@@ -32,7 +22,6 @@ class pageController extends Controller
       }
       else
       {
-         // return "kk";
          return view('homepage');
       }
    }
@@ -41,7 +30,6 @@ class pageController extends Controller
    {
       if(Auth::check())
       {
-      // $this->cekAuth();
          $user = Auth::user();
 
          if(isset($user))
@@ -63,7 +51,6 @@ class pageController extends Controller
    {
       if(Auth::check())
       {
-         // $this->cekAuth();
          $feeds = Cerita::all();
          $pengarang = array();
          foreach ($feeds as $feed)
@@ -88,13 +75,11 @@ class pageController extends Controller
                              'password' => $user['password']));
      if($auth)
      {
-        // return 'yeay';
         return redirect('feed');
      }
      else
      {
-        // return Auth::check();
-        return "Hai " .  $user['username'] . ", pass: " . $user['password'] . " a $auth";
+        return redirect('/');
      }
    }
 
@@ -135,12 +120,47 @@ class pageController extends Controller
    {
       $user = Auth::user();
       $user->email = $req->email;
-      // $user->nama = $req->nama;
+      $user->nama = $req->nama;
       $user->linkfb = $req->linkfb;
       $user->linktwitter = $req->linktwitter;
       $user->linkinstagram = $req->linkinstagram;
       $user->deskripsi = $req->deskripsi;
+
+      // Profpic
+      $gambar = $req->file('profPic');
+      if($gambar != null)
+      {
+         $path = public_path('images\profPic');
+         // $url = url('/public/images/profPic');
+         $url ="public/images/profPic";
+         $nama = $gambar->getClientOriginalName();
+
+         // $gambarProfPic = Image::make($gambar)->resize(200, 200);
+         $gambar->move($path, $nama);
+         $user->profPic = $url . "/"  .$nama;
+         // $gambarProfPic->save('public/images/profPic/anu.jpg');
+      }
+
+      // cover
+      $cover = $req->file('cover');
+      if($cover != null)
+      {
+         $pathCover = public_path('images\cover');
+         $urlCover = "public/images/cover";
+         $namaCover = $cover->getClientOriginalName();
+         $cover->move($pathCover, $namaCover);
+         $user->cover = $urlCover . "/" . $namaCover;
+      }
+
       $user->save();
+
       return redirect('profil');
+
+      // return dd($path);
+   }
+
+   public function follow($id)
+   {
+
    }
 }

@@ -12,7 +12,9 @@ Route::get('logout', 'pageController@logout');
 
 Route::get('cerita/{id}', 'pageController@cerita');
 
-Route::get('user/update', 'pageController@update');
+Route::post('user/update', 'pageController@update');
+
+Route::get('follow', 'pageController@follow');
 
 Route::resource('user', 'userController');
 
